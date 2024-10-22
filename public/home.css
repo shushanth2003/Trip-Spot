@@ -1,0 +1,472 @@
+/* CSS Resets */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero section */
+.header {
+  height: 60vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(https://i.ibb.co/FKj8wS2/banner1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.header img {
+  width: 200px;
+  float:left;
+}
+
+.login-btn {
+  width: 100px;
+  padding: 8px 0;
+  outline: none !important;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  background: transparent;
+  color: #ffffff;
+  float: right;
+}
+div .sidecontainer{
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: space-between;
+  margin-top: 27px;
+}
+.sideheader h1 {
+  padding-top: 65px;
+  padding-bottom: 0;
+  font-size: 55px;
+}
+.nav-tabs{
+       display: flex; 
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: row;
+      border: 1px solid;
+      padding: 20px;
+}
+div .navsidebars{
+  margin-top: 30px;
+}
+.textcolor{
+  color:black;
+  font-weight: bold;
+}
+.textcolor:hover{
+color:black;
+text-decoration: none;
+}
+.white-icon {
+  color: black;
+}
+.tab-content>.active {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: center;
+  background: transparent;
+  color:black;
+  border: none;
+  padding-bottom: 40px;
+}
+div .trip{
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-left: 19px;
+  margin-right: 60px;
+}
+div #wrap .trip{
+  display: flex;
+}
+.header p {
+  margin: 18px 0;
+}
+
+.input-group {
+  width: 90% !important;
+  max-width: 500px;
+  border-radius: #ffffff;
+  margin: auto;
+  padding: 2px;
+}
+
+.form-control {
+  border: 0 !important;
+  border-radius: 30px !important;
+  margin: 2px;
+  box-shadow: none !important;
+}
+
+.input-group-text {
+  width: 100px;
+  background-image: linear-gradient(#00ff7e, #1f3d90);
+  border: 0 !important;
+  color: #ffffff !important;
+  padding: 0 25px !important;
+  border-radius: 30px !important;
+  box-shadow: none !important;
+}
+
+.input-group-append .btn {
+  margin-left: 15px !important;
+}
+
+/* Featured destinations css */
+
+.features {
+  padding: 20px;
+}
+
+.feature-box {
+  box-shadow: 0 0 10px 1px rgba(37, 73, 214, 0.18);
+  margin-bottom: 30px;
+}
+
+h1 {
+  text-align: center;
+  border-bottom: 20px;
+}
+
+.feature-img {
+  position: relative;
+}
+
+.feature-img img {
+  width: 100%;
+}
+
+.price {
+  width: 70px;
+  height: 70px;
+  background: #ff5722;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 0 10px 1px rgba(37, 73, 214, 0.18);
+  position: absolute;
+  left: 20px;
+  bottom: -25px;
+}
+.price p {
+  margin-top: 10px;
+}
+
+.rating {
+  padding: 3px;
+  float: right;
+  background: #ffffff;
+  bottom: -1px;
+  right: 0;
+  position: absolute;
+}
+
+.fas,
+.far {
+  font-size: 15px;
+  color: #ff5722;
+}
+
+.feature-details {
+  padding: 20px;
+  text-align: justify;
+}
+
+.feature-details h4 {
+  font-weight: 600;
+  margin-top: 20px;
+}
+.feature-details .fas {
+  margin-right: 5px;
+}
+
+/* Gallery css */
+
+.gallery {
+  padding: 100px 0;
+  background: #efefef;
+}
+.gallery-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+.gallery-box img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.gallery-box img:hover {
+  transform: scale(1.1);
+}
+.gallery-box h4 {
+  display: block;
+  color: #ffffff;
+  text-shadow: -2px 2px 2px #000;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* CTA css */
+
+.banner {
+  height: 80vh;
+  background-image: url(https://i.ibb.co/LC15QXc/banner-2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 10%;
+}
+
+.banner-highlights {
+  padding: 70px 0;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  color: #ffffff;
+}
+.booking-btn {
+  width: 120px;
+  padding: 8px 0;
+  outline: none !important;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  background: transparent;
+  color: #ffffff;
+  margin-top: 30px;
+}
+
+/* Review section css */
+
+.users-feedback {
+  padding: 100px 0;
+}
+
+.users-feedback h1 {
+  margin-bottom: 40px;
+}
+
+.user-review {
+  text-align: center;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 100, 0.2);
+  padding-bottom: 50px;
+}
+
+.user-review p {
+  padding: 40px 10px 10px 10px;
+}
+
+.users-feedback img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative;
+  margin: -30px 0 20px 40%;
+}
+
+.user-review p::before {
+  content: "\201d";
+  display: block;
+  position: absolute;
+  font-size: 100px;
+  color: #6495ed;
+  font-family: sans-serif;
+  left: 44%;
+  top: -20px;
+}
+.justify-content-center {
+  justify-content: center !important;
+  border: none;
+}
+/* Footer section css */
+
+.footer {
+  padding: 100px 20px 10px;
+  background-image: linear-gradient(#2d557d, #9610fd);
+  color: #ffffff;
+}
+
+.footer-logo {
+  width: 200px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.footer h4 {
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.footer p {
+  font-size: 14px;
+  text-align: left;
+  padding-right: 35px;
+}
+
+p > .fas {
+  color: #ffffff;
+}
+
+.footer .row .fas,
+.fab {
+  padding-right: 15px;
+  font-size: 15px;
+}
+
+.footer hr {
+  margin-top: 10px;
+  background: #efefef;
+}
+
+.footer .copyright {
+  text-align: center;
+}
+/* --------------------------------------------------------------flight bookings-------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------hotel bookings-------------------------------------------------------------------- */
+.booking-form {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.booking-form h2 {
+  color: #007bff;
+}
+.form-label {
+  font-weight: bold;
+}
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+/* ---------------------------------------------------------------homestays&villas-------------------------------------------------------------------- */
+.booking-form {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.booking-form h2 {
+  color: #007bff;
+}
+.form-label {
+  font-weight: bold;
+}
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+/* ---------------------------------------------------------holiday packages----------------------------------------------------------------------------- */
+.booking-form {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.booking-form h2 {
+  color: #007bff;
+}
+.form-label {
+  font-weight: bold;
+}
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+/* ------------------------------------------------------------train bookings-------------------------------------------------------------------------- */
+.booking-form {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.booking-form h2 {
+  color: #007bff;
+}
+.form-label {
+  font-weight: bold;
+}
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+/* ---------------------------------------------------------------cab booking------------------------------------------------------------------------------ */
+.booking-form {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.booking-form h2 {
+  color: #007bff;
+}
+.form-label {
+  font-weight: bold;
+}
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+/* -----------------------------------------------------------fightbooking------------------------------------------------------------------------ */
+.booking-form {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.booking-form h2 {
+  color: #007bff;
+}
+.form-label {
+  font-weight: bold;
+}
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+/* ---------------------------------------------------------------topnavigator------------------------------------------------------------------------------ */
+.nav-tabs .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  color: black;
+  font-weight: bold;
+}
+.nav-tabs .nav-link img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.nav-tabs .nav-link.active {
+  background-color:black;
+  color: white;
+  border-radius: 5px;
+}
+.textcolor {
+  color: red;
+}
+/* -----------------------------------------------------mediaqueries-------------------------------------------------------------------------------- */
+@media screen and (max-width:420px) {
+  .header{
+    height:67vh;
+  }
+}

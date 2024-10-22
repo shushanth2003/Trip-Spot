@@ -1,0 +1,179 @@
+/* Center the content vertically and horizontally */
+body {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    background-color: whitesmoke; 
+    margin: 0;
+    padding: 0;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #818182;
+    border-color: #818182;
+}
+.btn-primary{
+    background-color: black;
+}
+a:hover {
+    color: #0d0d0d;
+    text-decoration: none;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: rgb(8, 8, 67);
+}
+.img-fluid{
+    height:600px;
+    width:600px;
+    border-radius: 5px;
+}
+
+.welcome{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    color: grey;
+}
+
+/* Style for the image */
+.left-col img {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+}
+
+.row {
+    background-color: #dee2e6;
+    padding:20px;
+    
+}
+
+/* Style for the login form */
+.right-col {
+    background-color: #dee2e6;
+    padding: 20px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    /* margin-top: 22px;
+    margin-bottom: 20px; */
+}
+
+
+
+.right-col h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.right-col .form-group label {
+    font-weight: bold;
+}
+
+.right-col .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.inputs {
+    background-color: whitesmoke;
+}
+
+.error-message {
+    color: red;
+    display: none;
+}
+
+.custom-link {
+    color: rgb(4, 4, 10);
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Profile page */
+.profile-container {
+    background-color: #b6c1c6; /* Match inner container color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-info {
+    font-size: 16px;
+    color: rgb(8, 8, 67);
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+.profile-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-actions span {
+    cursor: pointer;
+    color: rgb(8, 8, 67);
+    text-decoration: none;
+}
+
+/* Navbar styles */
+.navbar-brand {
+    color: rgb(8, 8, 67);
+}
+
+.navbar-expand-lg {
+    background-color: #b6c1c6;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    display: flex;
+    flex-basis: none;
+    justify-content: flex-end;
+}
+.alogin{
+    padding:10px;
+    margin-left: -9px;
+    color:rgb(8, 8, 67);
+}
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .right-col {
+        margin-top: 20px;
+        background-color: whitesmoke;
+        padding: 12px;
+        margin-top: 22px;
+        margin-bottom: 20px;
+    }
+    .container .row .images{
+        display:none;
+    }
+}

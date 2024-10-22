@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab Booking UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-bg {
+            background-color: #002d5b;
+            color: white;
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        h6 {
+            margin-bottom: 0.5rem; /* Space between heading and input */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Custom button color */
+            border-color: #007bff; /* Matching border color */
+        }
+        .filter-section {
+            background-color: #002D5B;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            color: white;
+        }
+        .filter-section h5 {
+            margin-bottom: 15px;
+        }
+        .booking-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .price-discount {
+            color: red;
+            font-weight: bold;
+        }
+        .old-price {
+            text-decoration: line-through;
+        }
+        .btn-search {
+            background-color: #007bff;
+            color: white;
+        }
+        .header-section {
+            background-color: #e9f7ff;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .header-section select {
+            width: auto;
+        }
+        .car-image {
+            width: 100px;
+            height: auto;
+        }
+        .hidden {
+        display: none; /* Hide the element */
+      }
+
+      .visible {
+        display: block; /* Show the element */
+      } 
+    </style>
+</head>
+<body>
+    <div class="navbar-bg p-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h6>PICKUP LOCATION</h6>
+                    <input type="text" class="form-control" placeholder="Enter pickup location" id="pick_up_location">
+                </div>
+                <div class="col-md-3">
+                    <h6>DROPOFF LOCATION</h6>
+                    <input type="text" class="form-control" placeholder="Enter dropoff location" id="drop_off_location">
+                </div>
+                <div class="col-md-2">
+                    <h6>PICKUP DATE</h6>
+                    <input type="date" class="form-control" id="pickup_date">
+                </div>
+                <div class="col-md-2">
+                    <h6>PICKUP TIME</h6>
+                    <input type="time" class="form-control" id="pickup_time">
+                </div>
+                <div class="col-md-2">
+                    <h6>PASSENGERS</h6>
+                    <input type="number" class="form-control" placeholder="Number of passengers" id="passengers">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <h6>CAB TYPE</h6>
+                    <select class="form-select" id="cabtypedropdown"></select>
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button class="btn btn-primary w-100" id="btn_cab">SEARCH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Filter Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="filter-section">
+                    <h5>Select Filters</h5>
+                    <h6>Cab Type</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="sedan">
+                        <label class="form-check-label" for="sedan">Sedan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="suv">
+                        <label class="form-check-label" for="suv">SUV</label>
+                    </div>
+                    <h6>Fuel Type</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cng">
+                        <label class="form-check-label" for="cng">CNG</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="diesel">
+                        <label class="form-check-label" for="diesel">Diesel</label>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Booking Section -->
+            <div class="col-md-9">
+                <div class="header-section">
+                    <p>Showing 5 out of 5 cabs | Sorted By <a href="#">Price (Lowest to Highest)</a></p>
+                </div>
+    
+                <!-- Cab Cards -->
+                <div class="booking-card sedanss cng">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="./logo/car1.jpeg" alt="Dzire, Etios" class="car-image">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Dzire,Etios or similar</h5>
+                            <p><span class="sedans">Sedan</span> • AC • 4 Seats • 1738 kms included</p>
+                            <span class="text-success">4.5/5 • 4746 ratings • CNG with refill breaks</span>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <h5 class="price-discount">₹17,425</h5>
+                            <p class="text-muted old-price">₹22,759</p>
+                            <p>+ ₹2378 (Taxes & Charges)</p>
+                            <button class="btn btn-primary">BOOK NOW</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Cab Card 2 -->
+                <div class="booking-card sedanss cng">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="./logo/car2.jpeg" alt="Honda City" class="car-image">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Honda city or similar</h5>
+                            <p><span class="sedans">Sedan</span> • AC • 4 Seats • 1738 kms included</p>
+                            <span class="text-success">4.4/5 • 3946 ratings • Diesel</span>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <h5 class="price-discount">₹18,225</h5>
+                            <p class="text-muted old-price">₹23,159</p>
+                            <p>+ ₹2378 (Taxes & Charges)</p>
+                            <button class="btn btn-primary">BOOK NOW</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Cab Card 3 -->
+                <div class="booking-card suvss diesel">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="./logo/car3.jpeg" alt="Toyota Innova" class="car-image">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Toyota Innova or similar</h5>
+                            <p><span class="suvs">SUV</span> • AC • 6 Seats • 1738 kms included</p>
+                            <span class="text-success">4.7/5 • 5146 ratings • Diesel</span>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <h5 class="price-discount">₹20,500</h5>
+                            <p class="text-muted old-price">₹25,759</p>
+                            <p>+ ₹2378 (Taxes & Charges)</p>
+                            <button class="btn btn-primary">BOOK NOW</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Cab Card 4 -->
+                <div class="booking-card suvss diesel">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="./logo/car4.jpeg" alt="Tata Hexa" class="car-image">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Mahindra XUV or similar</h5>
+                            <p><span class="suvs">SUV</span> • AC • 6 Seats • 1738 kms included</p>
+                            <span class="text-success">4.6/5 • 4346 ratings • Diesel</span>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <h5 class="price-discount">₹21,300</h5>
+                            <p class="text-muted old-price">₹26,159</p>
+                            <p>+ ₹2378 (Taxes & Charges)</p>
+                            <button class="btn btn-primary">BOOK NOW</button>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../bookingpage/cabbooking_back.js"></script>
+</body>
+</html>

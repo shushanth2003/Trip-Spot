@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Booking UI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar-bg {
+        background-color: #002d5b;
+        color: white;
+      }
+      .filter-section {
+        background-color: #002d5b;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-right: 100px;
+        margin-left: -100px;
+        color: white;
+      }
+      .filter-section h5 {
+        margin-bottom: 15px;
+      }
+      .booking-card {
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+      }
+      .btn-search {
+        background-color: #007bff;
+        color: white;
+      }
+      .header-section {
+        background-color: #e9f7ff;
+        padding: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .flight-img {
+        width: 80px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 15px;
+      }
+      .flight-info {
+        flex: 1;
+      }
+      .flight-info h5 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+      .flight-info p {
+        margin: 0;
+      }
+      .price-discount {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+      .old-price {
+        text-decoration: line-through;
+      }
+      .hidden {
+        display: none; /* Completely hide the element */
+      }
+
+      .visible { /* Show the element */
+        opacity: 1; /* Ensure full visibility */
+        transition: opacity 0.3s ease; /* Smooth transition */
+      }
+
+      /* Optional: Add margin for spacing */
+      .onewayContainer,
+      .roundTripContainer {
+        margin-top: 10px; /* Adjust for spacing */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="navbar-bg p-3">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <h6>DEPARTURE</h6>
+            <select class="form-select" id="flight_departures">
+            </select>
+            <span id="flight_departures_error"></span>
+            <!-- <input type="text" class="form-control" id="flight_departures" /> -->
+          </div>
+          <div class="col-md-4">
+            <h6>ARRIVAL</h6>
+            <select class="form-select" id="flight_arrivals">
+            </select>
+            <span id="flight_arrivals_error"></span>
+            <!-- <input type="text" class="form-control" id="flight_arrivals"> -->
+          </div>
+          <div class="col-md-4">
+            <h6>DEPARTURE DATE</h6>
+            <input
+              type="date"
+              class="form-control"
+              id="flight_departure_dates"
+            />
+          </div>
+          <span id="flight_departure_dates_error"></span>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <h6>RETURN DATE</h6>
+            <input type="date" class="form-control" id="flight_return_date" />
+            <span id="flight_return_date_error"></span>
+          </div>
+          <div class="col-md-4">
+            <h6>PASSENGERS</h6>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Number of Passengers"
+              id="flight_passengers"
+            />
+            <span id="flight_passengers_error"></span>
+          </div>
+          <div class="col-md-4 d-flex align-items-end">
+            <button class="btn btn-search w-100" id="flightinsidebtn">SEARCH FLIGHTS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="filter-section">
+            <h5>Select Filters</h5>
+            <h6>Flight Type</h6>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="onewaycheckbox"
+              />
+              <label class="form-check-label" for="one-way">One Way</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="roundwaycheckbox"
+              />
+              <label class="form-check-label" for="round-trip"
+                >Round Trip</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Section -->
+        <div class="col-md-9">
+          <div class="header-section">
+            <p>
+              Showing 6 out of 50 flights | Sorted By
+              <a href="#">Price (Lowest to Highest)</a>
+            </p>
+          </div>
+          <!-- One Way Trip: Chennai - Coimbatore -->
+          <div class="booking-card onewayContainer">
+            <img src="./logo/indiago.png" alt="Air India" class="flight-img" />
+            <div class="flight-info">
+              <h5>
+                <span id="departurename"class="departurenames"></span> International Airport (MAA) –
+                <span id="arrivalname" class="arrivalnames"></span> International Airport (CJB)
+              </h5>
+              <p>Departure Time: 10:00 AM, Arrival Time: 11:00 AM</p>
+              <p>Duration: 1h</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹5,000</h5>
+              <p class="text-muted old-price">₹6,000</p>
+              <p>+ ₹500 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- One Way Trip: Coimbatore - Chennai -->
+          <div class="booking-card onewayContainer">
+            <img src="./logo/airindia.png" alt="Air India" class="flight-img" />
+            <div class="flight-info">
+              <h5>
+                <span id="arrivalsname" class="arrivalsnames"></span> International Airport (CJB) –
+                <span id="departuresname" class="departuresnames"></span> International Airport (MAA)
+              </h5>
+              <p>Departure Time: 12:00 PM, Arrival Time: 1:00 PM</p>
+              <p>Duration: 1h</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹5,000</h5>
+              <p class="text-muted old-price">₹6,000</p>
+              <p>+ ₹500 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- Round Trip: Chennai - Tiruchirapalli - Coimbatore -->
+          <div class="booking-card roundTripContainer">
+            <img src="./logo/airasia.png" alt="Air India" class="flight-img" />
+            <div class="flight-info">
+              <h5>
+                <span id="departuressname" class="departuressnames"></span> International Airport (MAA) –
+                Tiruchirapalli International Airport (TRZ) –
+                <span id="arrivalssname" class="arrivalssnames"></span> International Airport (CJB)
+              </h5>
+              <p>Departure Time: 9:00 AM, Arrival Time: 10:00 AM</p>
+              <p>Duration: 1h</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹9,500</h5>
+              <p class="text-muted old-price">₹12,500</p>
+              <p>+ ₹400 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- Round Trip: Coimbatore - Tiruchirapalli - Chennai -->
+          <div class="booking-card roundTripContainer">
+            <img src="./logo/spicejet.png" alt="Air India" class="flight-img" />
+            <div class="flight-info">
+              <h5>
+                <span id="arrivalsssname" class="arrivalsssnames"></span> International Airport (CJB) –
+                Tiruchirapalli International Airport (TRZ) –
+                <span id="departuresssname" class="departuresssnames"></span> International Airport (MAA)
+              </h5>
+              <p>Departure Time: 11:30 AM, Arrival Time: 12:30 PM</p>
+              <p>Duration: 1h</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹9,500</h5>
+              <p class="text-muted old-price">₹13,500</p>
+              <p>+ ₹400 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- Repeat similar structure for remaining trips -->
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./flightback.js"></script>
+  </body>
+</html>

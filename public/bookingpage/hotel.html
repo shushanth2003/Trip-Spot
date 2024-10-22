@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Booking UI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar-bg {
+        background-color: #002d5b;
+        color: white;
+      }
+      .search-section {
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .search-section h5 {
+        margin-bottom: 15px;
+      }
+      .filter-section {
+        background-color: #002D5B;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        color: white;
+        margin-top: 20px;
+        margin-left: -50px;
+        margin-right: 50px;
+      }
+      .filter-section h5 {
+        margin-bottom: 15px;
+      }
+      .hotel-card {
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+      }
+      .hotel-img {
+        width: 160px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 15px;
+      }
+      .hotel-info {
+        flex: 1;
+      }
+      .hotel-info h5 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+      .hotel-info p {
+        margin: 0;
+      }
+      .price-discount {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+      .old-price {
+        text-decoration: line-through;
+      }
+      .btn-search {
+        background-color: #007bff;
+        color: white;
+      }
+     
+      /* Optional: Add margin for spacing */
+      .star1,
+      .star2,
+      .star3,
+      .star4,
+      .star5 {
+        margin-top: 10px; /* Adjust for spacing */
+      }
+      .hidden {
+        display: none; /* Hide the element */
+      }
+
+      .visible {
+        display: flex; /* Show the element */
+      } 
+      
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="navbar-bg p-3">
+      <div class="container-fluid">
+        <div class="search-section">
+          <div class="row">
+            <div class="col-md-3">
+              <h5>Destination</h5>
+              <select class="form-select" id="hotel_destination"></select>
+            </div>
+            <div class="col-md-3">
+              <h5>Check-in Date</h5>
+              <input type="date" class="form-control" id="hotel_checkIndate" />
+            </div>
+            <div class="col-md-3">
+              <h5>Check-out Date</h5>
+              <input type="date" class="form-control" id="hotel_checkOutdate" />
+            </div>
+            <div class="col-md-3">
+              <h5>Guests</h5>
+              <select class="form-select" id="hotel_guest">
+                <option value="1">1 Guests</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-3">
+              <h5>Rooms</h5>
+              <select class="form-select" id="hotel_room">
+                <option value="1">1 Room</option>
+                <option value="2">2 Rooms</option>
+                <option value="3">3 Rooms</option>
+                <option value="4">4 Rooms</option>
+              </select>
+            </div>
+            <div class="col-md-12 d-flex align-items-end mt-3">
+              <button class="btn btn-search w-100" id="searchBtn">SEARCH HOTELS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="filter-section">
+            <h5>Select Filters</h5>
+            <h6>Star Rating</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="star-1" />
+              <label class="form-check-label" for="star-1">1 Star</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="star-2" />
+              <label class="form-check-label" for="star-2">2 Stars</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="star-3" />
+              <label class="form-check-label" for="star-3">3 Stars</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="star-4" />
+              <label class="form-check-label" for="star-4">4 Stars</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="star-5" />
+              <label class="form-check-label" for="star-5">5 Stars</label>
+            </div>
+            <!-- <h6>Price Range</h6>
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="10000"
+              step="100"
+              id="price-range"
+            /> -->
+            <!-- <div class="d-flex justify-content-between">
+              <span>₹0</span>
+              <span>₹10,000</span>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- Hotel Section -->
+        <div class="col-md-9">
+          <div class="header-section">
+            <p>
+              Showing 5 out of 50 hotels in Destination | Sorted By
+              <a href="#">Price (Lowest to Highest)</a>
+            </p>
+          </div>
+
+          <!-- Hotel Cards -->
+        <div class="hotel-container">
+          <div class="hotel-card star4">
+            <img
+              src="./logo/hotel_grand.jpg"
+              alt="Hotel Name"
+              class="hotel-img"
+            />
+            <div class="hotel-info">
+              <h5>Hotel Grand</h5>
+              <p>Location: Chennai</p>
+              <p>Rating: ★★★★</p>
+              <p>Distance from City Center: 2 km</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹4,500</h5>
+              <p class="text-muted old-price">₹5,000</p>
+              <p>+ ₹200 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- Hotel Card 2 -->
+          <div class="hotel-card star3">
+            <img
+              src="./logo/hotel_grand1.jpg"
+              alt="Hotel Name"
+              class="hotel-img"
+            />
+            <div class="hotel-info">
+              <h5>Hotel Elite</h5>
+              <p>Location: Madurai</p>
+              <p>Rating: ★★★</p>
+              <p>Distance from City Center: 1 km</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹3,800</h5>
+              <p class="text-muted old-price">₹4,200</p>
+              <p>+ ₹150 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- Hotel Card 3 -->
+          <div class="hotel-card star4">
+            <img
+              src="./logo/hotel_grand2.jpg"
+              alt="Hotel Name"
+              class="hotel-img"
+            />
+            <div class="hotel-info">
+              <h5>Hotel Paradise</h5>
+              <p>Location: Coimbatore</p>
+              <p>Rating: ★★★★</p>
+              <p>Distance from City Center: 3 km</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹5,000</h5>
+              <p class="text-muted old-price">₹5,500</p>
+              <p>+ ₹250 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- Hotel Card 4 -->
+          <div class="hotel-card star3">
+            <img
+              src="./logo/hotel_grand3.jpg"
+              alt="Hotel Name"
+              class="hotel-img"
+            />
+            <div class="hotel-info">
+              <h5>Hotel Comfort</h5>
+              <p>Location: Chennai</p>
+              <p>Rating: ★★★</p>
+              <p>Distance from City Center: 5 km</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹3,500</h5>
+              <p class="text-muted old-price">₹4,000</p>
+              <p>+ ₹180 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- Hotel Card 5 -->
+          <div class="hotel-card star5">
+            <img
+              src="./logo/hotel_grand4.jpg"
+              alt="Hotel Name"
+              class="hotel-img"
+            />
+            <div class="hotel-info">
+              <h5>Hotel Luxury</h5>
+              <p>Location: Coimbatore</p>
+              <p>Rating: ★★★★★</p>
+              <p>Distance from City Center: 1 km</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹7,000</h5>
+              <p class="text-muted old-price">₹7,500</p>
+              <p>+ ₹300 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+          <!-- Hotel Card 6 (1 Star Hotel) -->
+          <div class="hotel-card star1">
+            <img
+              src="./logo/hotel_grand7.jpeg"
+              alt="Hotel Name"
+              class="hotel-img"
+            />
+            <div class="hotel-info">
+              <h5>Hotel Simple Stay</h5>
+              <p>Location: Salem</p>
+              <p>Rating: ★</p>
+              <p>Distance from City Center: 4 km</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹1,500</h5>
+              <p class="text-muted old-price">₹2,000</p>
+              <p>+ ₹100 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+
+          <!-- Hotel Card 7 (2 Star Hotel) -->
+          <div class="hotel-card star2">
+            <img
+              src="./logo/hotel_grand8.jpeg"
+              alt="Hotel Name"
+              class="hotel-img"
+            />
+            <div class="hotel-info">
+              <h5>Hotel Budget Inn</h5>
+              <p>Location: Tiruchirapalli</p>
+              <p>Rating: ★★</p>
+              <p>Distance from City Center: 2.5 km</p>
+            </div>
+            <div class="text-end">
+              <h5 class="price-discount">₹2,800</h5>
+              <p class="text-muted old-price">₹3,200</p>
+              <p>+ ₹120 (Taxes & Charges)</p>
+              <button class="btn btn-primary">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../hotelback.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="module" src ="flightbooking.js"></script>
+    <script src="hotelbooking.js"></script>
+    <script src="./homestaysvillas.js"></script>
+    <script src="./publicpackages.js"></script>
+    <script src="./trainbooking.js"></script>
+    <script src="./cabbooking.js"></script>
+    <script src="./forexcard.js"></script>
+    <script src="./travelinsurance.js"></script>
+</head>
+<style>
+        .nav-tabs .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .nav-tabs .nav-link img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        .textcolor {
+            color: #007bff;
+        }
+</style>
+<body>
+<div class="navigatorbar">
+    <!-- Hero section goes here -->
+<section class="header sideheader">
+    <div class="container sidecontainer">
+      <h2>Trip Spot</h2>
+      <button type="button" class="login-btn">Login</button>
+    </div>
+    <h1>Travel Across The Globe</h1>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+    
+    <div class="input-group">
+      <input type="text" name="" id="" class="form-control" placeholder="Search Country or City" />
+      <div class="input-group-append">
+        <button type="submit" class="input-group-text btn">Search</button>
+      </div>
+
+  </section>
+  <!-- Hero section ends here -->
+  <section>
+  </div>
+  <div class="navsidebars">
+    <div class="container mt-4">
+        <ul class="nav nav-tabs justify-content-center flex-wrap">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#Flight">
+                    <img src="./iconsss/take-off.png" alt="Flight"> Flight
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Hotels">
+                    <img src="./iconsss/building (1).png" alt="Hotels"> Hotels
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Homestays_Villas">
+                    <img src="./iconsss/homestay.png" alt="Homestays & Villas"> Homestays & Villas
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Holidays_Packages">
+                    <img src="./iconsss/building (1).png" alt="Holidays Packages"> Holidays Packages
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Trains">
+                    <img src="./iconsss/rail.png" alt="Trains"> Trains
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#cabs">
+                    <img src="./iconsss/cab.png" alt="Cabs"> Cabs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Forex_Card_Currency">
+                    <img src="./iconsss/atm-card.png" alt="Forex Card & Currency"> Forex Card & Currency
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Travel_Insurance">
+                    <img src="./iconsss/travel-insurance.png" alt="Travel Insurance"> Travel Insurance
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div class="tab-content">
+            <div id="Flight" class="tab-pane fade textcolor">
+              <div class="container mt-5">
+                <div class="booking-form mx-auto">
+                    <h2 class="text-center mb-4">Flight Booking</h2>
+                    <form>
+                      <!-- Trip Type Radio Buttons -->
+                      
+      
+                      <!-- Departure and Arrival -->
+                      <div class="row mb-3">
+                          <div class="col-md-6">
+                              <label for="departure" class="form-label">Departure</label>
+                              <select class="form-select" id="departure">
+                                <option selected>Choose the Departure</option>
+                              </select>
+                            <span id="departureerror" class="flighterror"></span>
+                          </div>
+                          <div class="col-md-6">
+                              <label for="arrival" class="form-label">Arrival</label>
+                              <select class="form-select" id="arrival">
+                                <option selected>Choose the Arrival</option> 
+                            </select>
+                            <span id="arrivalerror" class="flighterror"></span>
+                          </div>
+                      </div>
+      
+                      <!-- Dates -->
+                      <div class="row mb-3">
+                          <div class="col-md-6">
+                              <label for="departureDate" class="form-label">Departure Date</label>
+                              <input type="date" class="form-control" id="departureDate">
+                              <span id="departureDateerror" class="flighterror"></span>
+                          </div>
+                          <div class="col-md-6">
+                              <label for="returnDate" class="form-label">Return Date</label>
+                              <input type="date" class="form-control" id="returnDate">
+                              <span id="returnDateerror" class="flighterror"></span>
+                          </div>
+                      </div>
+      
+                      <!-- Passengers -->
+                      <div class="row mb-3">
+                          <div class="col-md-6">
+                              <label for="passengers" class="form-label">Passengers</label>
+                              <select class="form-select" id="passengers">
+                                  <option selected>Choose number of passengers</option>
+                                  <option value="1">1 Passenger</option>
+                                  <option value="2">2 Passengers</option>
+                                  <option value="3">3 Passengers</option>
+                                  <option value="4">4 Passengers</option>
+                              </select>
+                              <span id="passengerserror" class="flighterror"></span>
+                          </div>
+                      </div>
+      
+                      <!-- Submit Button -->
+                      <!-- <div class="text-center">
+                        onclick="window.location.href='./bookingpage/flight.html'"> -->
+                          <button type="submit" class="btn btn-primary" id="flightbutton">Search Flights</button>
+                      </div>
+                  </form>
+                </div>
+                <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+                  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                      <div class="toast-header">
+                          <strong class="me-auto">Success</strong>
+                          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                      </div>
+                      <div class="toast-body">
+                          Flight booking saved successfully!
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div id="Hotels" class="tab-pane fade textcolor">
+              <div class="container mt-5">
+                <div class="booking-form mx-auto">
+                    <h2 class="text-center mb-4">Hotel Booking</h2>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="destination" class="form-label">Destination</label>
+                                <select class="form-select" id="destination">
+                                  
+                                </select>
+                                <span id="destinationerror"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkInDate" class="form-label">Check-In Date</label>
+                                <input type="date" class="form-control" id="checkInDate">
+                                <span id="checkInDateerror"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="checkOutDate" class="form-label">Check-Out Date</label>
+                                <input type="date" class="form-control" id="checkOutDate">
+                                <span id="checkOutDateerror"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="guests" class="form-label">Guests</label>
+                                <select class="form-select" id="guest">
+                                    <option selected>Choose number of guests</option>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                                <span id="guesterror"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="rooms" class="form-label">Rooms</label>
+                                <select class="form-select" id="room">
+                                    <option selected>Choose number of rooms</option>
+                                    <option value="1">1 Room</option>
+                                    <option value="2">2 Rooms</option>
+                                    <option value="3">3 Rooms</option>
+                                    <option value="4">4 Rooms</option>
+                                </select>
+                                <span id="roomerror"></span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" id="hotelbutton">Search Hotels</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+              <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="toast-header">
+                      <strong class="me-auto">Success</strong>
+                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                  <div class="toast-body">
+                      Flight booking saved successfully!
+                  </div>
+              </div>
+          </div>
+            </div>
+            <div id="Homestays_Villas" class="tab-pane fade textcolor">
+              <div class="container mt-5">
+                <div class="booking-form mx-auto">
+                    <h2 class="text-center mb-4">Homestay & Villas Booking</h2>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="destination" class="form-label">Destination</label>
+                                
+                                <select class="form-select" id="destination_homestays" placeholder="Enter destination"></select>
+                                <span id="destination_homestay_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkInDate" class="form-label">Check-In Date</label>
+                                <input type="date" class="form-control" id="checkInDate_homestays">
+                                <span id="checkInDate_homestays_error"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="checkOutDate" class="form-label">Check-Out Date</label>
+                                <input type="date" class="form-control" id="checkOutDate_homestays">
+                                <span id="checkOutDate_homestays_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="guests" class="form-label">Guests</label>
+                                <select class="form-select" id="guest_homestays">
+                                    <option selected>Choose number of guests</option>
+                                    <option value="1">1 Guests</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                                <span id="guest_homestays_error"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="propertyType" class="form-label">Property Type</label>
+                                <select class="form-select" id="propertyType_homestays">
+                                    <option selected>Choose property type</option>
+                                    <option value="Homestay">Homestay</option>
+                                    <option value="Villa">Villa</option>
+                                </select>
+                                <span id="propertyType_homestays_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="rooms" class="form-label">Rooms</label>
+                                <select class="form-select" id="room_homestays">
+                                    <option selected>Choose number of rooms</option>
+                                    <option value="1">1 Room</option>
+                                    <option value="2">2 Rooms</option>
+                                    <option value="3">3 Rooms</option>
+                                    <option value="4">4 Rooms</option>
+                                </select>
+                                <span id="room_homestays_error"></span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" id="homestaysvillasbutton">Search Homestays & Villas</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+            <div id="Holidays_Packages" class="tab-pane fade textcolor">
+              <div class="container mt-5">
+                <div class="booking-form mx-auto">
+                    <h2 class="text-center mb-4">Holidays & Packages Booking</h2>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="destination" class="form-label">Destination</label>
+                                <select class="form-select" id="destination_holidaypackage">
+                                </select>
+                                <span id="destination_holidaypackage_error"></span>  
+                            </div>
+                            <div class="col-md-6">
+                                <label for="startDate" class="form-label">Start Date</label>
+                                <input type="date" class="form-control" id="startDate_holidaypackage">
+                                <span id="startDate_holidaypackage_error"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="endDate" class="form-label">End Date</label>
+                                <input type="date" class="form-control" id="endDate_holidaypackage">
+                                <span id="endDate_holidaypackage_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="guests" class="form-label">Guests</label>
+                                <select class="form-select" id="guests_holidaypackage">
+                                    <option selected>Choose number of guests</option>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                                <span id="guests_holidaypackage_error"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="packageType" class="form-label">Package Type</label>
+                                <select class="form-select" id="packageType_holidaypackage">
+                                    <option value="Adventure">Adventure</option>
+                                    <option value="Relaxation">Relaxation</option>
+                                    <option value="Romantic">Romantic</option>
+                                </select>
+                                <span id="packageType_holidaypackage_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="budget" class="form-label">Budget (USD)</label>
+                                <input type="number" class="form-control" id="budget_holidaypackage" placeholder="Enter your budget">
+                                <span id="budget_holidaypackage_error"></span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" id="holidaypackages">Search Packages</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+            <div id="Trains" class="tab-pane fade textcolor">
+              <div class="container mt-5">
+                <div class="booking-form mx-auto">
+                    <h2 class="text-center mb-4">Train Booking</h2>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="fromStation" class="form-label">From</label>
+                                <select class="form-select" id="fromStation_train"></select>
+                                <span id="fromStation_train_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="toStation" class="form-label">To</label>
+                                <select class="form-select" id="toStation_train"></select>
+                                <span id="toStation_train_error"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="departureDate" class="form-label">Departure Date</label>
+                                <input type="date" class="form-control" id="departureDate_train">
+                                <span id="departureDate_train_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="returnDate" class="form-label">Return Date (Optional)</label>
+                                <input type="date" class="form-control" id="returnDate_train">
+                                <span id="returnDate_train_error"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="classType" class="form-label">Class</label>
+                                <select class="form-select" id="classType_train">
+                                    <option selected>Choose class type</option>
+                                    <option value="sleeper">Sleeper Class</option>
+                                    <option value="ac">AC Class</option>
+                                    <option value="firstClass">First Class</option>
+                                </select>
+                                <span id="classType_train_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="passengers" class="form-label">Passengers</label>
+                                <input type="number" class="form-control" id="passengers_train" placeholder="Enter number of passengers">
+                                <span id="passengers_train_error"></span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" id="trainbutton">Search Trains</button>
+                        </div>
+                    </form>
+                </div>
+            </div>>
+            </div>
+            <div id="cabs" class="tab-pane fade textcolor">
+              <div class="container mt-5">
+                <div class="booking-form mx-auto">
+                    <h2 class="text-center mb-4">Cab Booking</h2>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="pickupLocation" class="form-label">Pickup Location</label>
+                                <input type="text" class="form-control" id="pickupLocation" placeholder="Enter pickup location">
+                                <span id="pickuplocation_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dropoffLocation" class="form-label">Dropoff Location</label>
+                                <input type="text" class="form-control" id="dropoffLocation" placeholder="Enter dropoff location">
+                                <span id="dropofflocation_error"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="pickupDate" class="form-label">Pickup Date</label>
+                                <input type="date" class="form-control" id="pickupDate">
+                                <span id="pickupdate_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="pickupTime" class="form-label">Pickup Time</label>
+                                <input type="time" class="form-control" id="pickupTime">
+                                <span id="pickuptime_error"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="cabType" class="form-label">Cab Type</label>
+                                <select class="form-select" id="cabType">
+                                </select>
+                                <span id="cabType_error"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="passengers" class="form-label">Passengers</label>
+                                <input type="number" class="form-control" id="cabpassengers" placeholder="Enter number of passengers">
+                                <span id="passengers_error"></span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" id="cabbutton">Search Cabs</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+            <div id="Forex_Card_Currency" class="tab-pane fade textcolor">
+              <div class="container mt-5">
+                <div class="booking-form mx-auto">
+                    <h2 class="text-center mb-4">Forex Card & Currency</h2>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="currencyType" class="form-label">Currency Type</label>
+                                <select class="form-select" id="currencyType">
+                                    <option selected>Select currency type</option>
+                                </select>
+                                <span id="currencyTypeerror"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="amount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="amount" placeholder="Enter amount">
+                                <span id="amounterror"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="forexCard" class="form-label">Need Forex Card?</label>
+                                <select class="form-select" id="forexCard">
+                                    <option selected>Choose option</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <span id="forexcarderror"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="deliveryOption" class="form-label">Delivery Option</label>
+                                <select class="form-select" id="deliveryOption">
+                                    <option selected>Choose delivery option</option>
+                                    <option value="home">Home Delivery</option>
+                                    <option value="pickup">Pickup from Store</option>
+                                </select>
+                                <span id="deliveryOptionerror"></span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" id="forexbutton">Get Forex</button>
+                        </div>
+                    </form>
+                </div>
+            </div>        
+            </div>
+            <div id="Travel_Insurance" class="tab-pane fade textcolor">
+                <div class="container mt-5">
+        <div class="booking-form mx-auto">
+            <h2 class="text-center mb-4">Travel Insurance</h2>
+            <form>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName_travel" placeholder="Enter your full name">
+                        <span id="fullnametravelinsurance_error"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email_travel" placeholder="Enter your email">
+                        <span id="emailerror"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="travelDestination" class="form-label">Travel Destination</label>
+                        <input type="text" class="form-control" id="travelDestination_travel" placeholder="Enter destination">
+                        <span id="travelDestinationerror"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="travelDates" class="form-label">Travel Dates</label>
+                        <input type="date" class="form-control" id="travelDate_travel">
+                        <span id="traveldate_travelerror"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="insuranceType" class="form-label">Insurance Type</label>
+                        <select class="form-select" id="insuranceType_travel">
+                            <option selected>Choose insurance type</option>
+                            
+                        </select>
+                        <span id="insuranceType_travelerror"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="travelPurpose" class="form-label">Purpose of Travel</label>
+                        <select class="form-select" id="travelPurpose_travel">
+                            <option selected>Select purpose</option>
+                            
+                        </select>
+                        <span id="travelPurpose_travelid"></span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" id="travelinsurancebutton">Get Insurance Quote</button>
+                </div>
+            </form>
+        </div>
+    </div>
+            </div>
+    </div>
+</div>        
+</div>
+  </section>
+  <!-- Featured destinations goes here -->
+  <section class="features">
+    <h1>Featured Destinations</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-img">
+              <img src="https://i.ibb.co/8s9wCNc/2.jpg" alt="" />
+              <div class="price">
+                <p>₹ 5000</p>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <div class="feature-details">
+              <h4>Russia</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Voluptas, quidem. Est eum molestias eius quidem quis. Nostrum
+                officia dolores nihil, at sed, hic, commodi dolorum ex ipsum
+                magni aut aliquid.
+              </p>
+              <div>
+                <span><i class="fas fa-map-pin"></i>Russia</span>
+                <span><i class="fas fa-sun"></i>4 Days</span>
+                <span><i class="fas fa-moon"></i>3 Nights</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-img">
+              <img src="https://i.ibb.co/vmXLW5V/1.jpg" alt="" />
+              <div class="price">
+                <p>₹ 5000</p>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <div class="feature-details">
+              <h4>India</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Voluptas, quidem. Est eum molestias eius quidem quis. Nostrum
+                officia dolores nihil, at sed, hic, commodi dolorum ex ipsum
+                magni aut aliquid.
+              </p>
+              <div>
+                <span><i class="fas fa-map-pin"></i>India</span>
+                <span><i class="fas fa-sun"></i>4 Days</span>
+                <span><i class="fas fa-moon"></i>3 Nights</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-img">
+              <img src="https://i.ibb.co/HKnLQhv/3.jpg" alt="" />
+              <div class="price">
+                <p>₹ 5000</p>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <div class="feature-details">
+              <h4>USA</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Voluptas, quidem. Est eum molestias eius quidem quis. Nostrum
+                officia dolores nihil, at sed, hic, commodi dolorum ex ipsum
+                magni aut aliquid.
+              </p>
+              <div>
+                <span><i class="fas fa-map-pin"></i>USA</span>
+                <span><i class="fas fa-sun"></i>4 Days</span>
+                <span><i class="fas fa-moon"></i>3 Nights</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ./ Featured destinations ends here -->
+  
+  <!-- Gallery section goes here -->
+  <section class="gallery">
+    <h1>Travelling Gallery</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="gallery-box">
+            <img src="https://i.ibb.co/ZS5HJyR/travel-1.jpg" alt="" onclick="location.href='./russiashortbreaktour/russiashortbreak.html'">
+            <h4>Russia</h4>
+          </div>
+        </div>
+  
+        <div class="col-md-3">
+          <div class="gallery-box" onclick="location.href='./srilanka_short_tour/srilankashorttrip.html'">
+            <img src="https://i.ibb.co/61BrRwz/travel-2.jpg" alt="" />
+            <h4>Sri Lanka</h4>
+          </div>
+        </div>
+  
+        <div class="col-md-3">
+          <div class="gallery-box" onclick="location.href='./tourism_shortpackage/indiashortbreak.html'">
+            <img src="https://i.ibb.co/N9qnfPG/travel-3.jpg" alt="" />
+            <h4>India</h4>
+          </div>
+        </div>
+  
+        <div class="col-md-3">
+          <div class="gallery-box" onclick="location.href='./china_short_tourism/chinashorttourism.html'">
+            <img src="https://i.ibb.co/V3CkY03/travel-4.jpg" alt="" />
+            <h4>China</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ./ Gallery section ends here -->
+  
+  <!-- CTA section goes here -->
+  <section class="banner">
+    <div class="banner-highlights">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2>Get 30% on top destinations</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Numquam deserunt rerum officia aut rem facere tenetur hic.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class="booking-btn">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ./ CTA section ends here  -->
+  
+  <!-- Users review section goes here -->
+  <section class="users-feedback">
+    <h1>Users Review</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="user-review">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+              amet ipsam modi, eum minus incidunt sint non.
+            </p>
+            <h5>Sunil P.</h5>
+            <small>Russia</small>
+          </div>
+          <img src="https://i.ibb.co/FVyK1KM/user-2.png" alt="" />
+        </div>
+        <div class="col-md-4">
+          <div class="user-review">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+              amet ipsam modi, eum minus incidunt sint non.
+            </p>
+            <h5>Patrica W.</h5>
+            <small>Russia</small>
+          </div>
+          <img src="https://i.ibb.co/jZ3tQqK/user-3.png" alt="" />
+        </div>
+        <div class="col-md-4">
+          <div class="user-review">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+              amet ipsam modi, eum minus incidunt sint non.
+            </p>
+            <h5>Amanda P.</h5>
+            <small>India</small>
+          </div>
+          <img src="https://i.ibb.co/zfXD2Tx/user-1.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ./ Users review section ends here -->
+  
+  <!-- Footer section goes here -->
+  <section class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="https://i.ibb.co/FHwm1fL/triptok-logo.png" alt="triptok" class="footer-logo" />
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
+            omnis eveniet iusto minima tenetur voluptatum nam officiis
+            suscipit. Aut delectus facere eaque aperiam sunt maxime ipsam
+            dicta dolorum distinctio voluptatum!
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h4>Features</h4>
+          <p>Lorem ipsum</p>
+          <p>eveniet iusto</p>
+          <p>dolorum distinctio</p>
+        </div>
+        <div class="col-md-3">
+          <h4>Quick Contact</h4>
+          <p><i class="fas fa-phone"></i> +91 9854332456</p>
+          <p><i class="fas fa-envelope-open-text"></i> support@triptok.com</p>
+          <p><i class="fas fa-home"></i> XYZ Colony, BLR-68, IND</p>
+        </div>
+        <div class="col-md-3">
+          <h4>Follw us</h4>
+          <p><i class="fab fa-facebook"></i> Facebook</p>
+          <p><i class="fab fa-twitter-square"></i> Twitter</p>
+          <p><i class="fab fa-instagram-square"></i> Instagram</p>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">Copyright &copy; Triptok</p>
+    </div>
+  </section>
+  <!-- ./ Footer section ends here -->
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
